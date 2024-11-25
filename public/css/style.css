@@ -1,0 +1,350 @@
+/* Reset básico de margens e padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo do documento */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to left, #7f095d, #121130);
+  color: #333; /* Texto escuro para boa legibilidade */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+/* Título principal */
+h1 {
+  margin-top: 0px;
+  text-align: center;
+  color: #ff0092; /* Cor mais suave */
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  width: 100%; /* Garantir que o título ocupe toda a largura da tela */
+}
+
+/* Barra de navegação */
+.navbar {
+  background-color: #7f095d; /* Cor de fundo compatível com o design */
+  padding: 20px 0; /* Ajuste de espaçamento interno */
+  width: 100%; /* Ocupa toda a largura da tela */
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: 30px; /* Espaçamento entre os links */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidade */
+  justify-content: flex-start; /* Alinha os links à esquerda */
+  align-items: center;
+}
+
+/* Logo da barra de navegação */
+#r-nav {
+  height: 60px; /* Ajuste a altura conforme necessário */
+  width: auto; /* Mantém a proporção da imagem */
+  margin-right: 20px; /* Espaço entre a imagem e os links */
+  display: block; /* Garante que a imagem seja tratada como um item separado */
+  position: absolute; /* Permite o controle de posicionamento */
+  left: 50%; /* Move a imagem para o centro */
+  transform: translateX(-50%); /* Ajusta a imagem para o centro exato */
+}
+
+/* Links de navegação */
+.navbar a {
+  text-decoration: none; /* Remove sublinhado */
+  color: #ffffff; /* Texto branco */
+  font-size: 1.1rem; /* Tamanho do texto */
+  padding: 8px 15px; /* Espaçamento interno dos links */
+  transition: color 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+/* Efeito ao passar o mouse */
+.navbar a:hover {
+  color: #ff0092; /* Cor de destaque ao passar o mouse */
+}
+
+#logout-btn {
+  background-color: #e76f51; /* Cor de fundo do botão */
+  color: white; /* Cor do texto */
+  padding: 10px 20px; /* Tamanho do padding */
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 20px;
+  margin-left: auto; /* Empurra o botão para a direita */
+}
+
+#logout-btn:hover {
+  background-color: #d25e44; /* Cor mais escura no hover */
+}
+
+#logout-btn:focus {
+  outline: none; /* Remove o contorno azul */
+}
+
+/* Estilo do formulário de reserva */
+form {
+  margin-top: 90px;
+  background-color: #ffffff; /* Fundo branco para destacar o formulário */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%; /* Ocupa 100% da largura disponível */
+  max-width: 600px; /* Limita a largura máxima do formulário */
+  margin-left: auto; /* Centraliza o formulário */
+  margin-right: auto; /* Centraliza o formulário */
+}
+
+/* Título do formulário */
+h2 {
+  padding-top: 10 px;
+  text-align: center;
+  color: #ff0092; /* Cor de destaque */
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* Estilos para os campos do formulário */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #4a4a4a;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%; /* Campos ocupam 100% da largura */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Efeito de foco para os campos */
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #e76f51; /* Borda de foco com a cor de destaque */
+  outline: none;
+}
+
+/* Botão de envio */
+button {
+  margin-top: 20px;
+  background-color: #e76f51; /* Cor de fundo do botão */
+  color: rgb(254, 254, 254);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%; /* O botão terá um tamanho ajustado automaticamente */
+  max-width: 200px; /* Limita a largura máxima do botão */
+  display: block; /* Faz com que o botão seja tratado como bloco */
+  margin-left: auto; /* Centraliza o botão à esquerda */
+  margin-right: auto; /* Centraliza o botão à direita */
+}
+
+button:hover {
+  background-color: #d25e44; /* Cor mais escura para o hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Estilo para a lista de reservas */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  padding-top: 15px;
+  border-top: 2px solid #ddd;
+  border-bottom: 20px solid #ffffff;
+  background-color: #ffffff; /* Fundo da lista */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ocupa 100% da largura disponível */
+  max-width: 600px; /* Limita a largura máxima da lista */
+  margin-left: auto; /* Centraliza a lista */
+  margin-right: auto; /* Centraliza a lista */
+}
+
+li {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.03); /* Leve aumento no item ao passar o mouse */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Aumento da sombra */
+}
+
+/* Alternando a cor de fundo das listas para uma leitura mais confortável */
+li:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+li:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Estilo para as informações dentro de cada item */
+li .reserva-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+li .nome-cliente {
+  font-weight: bold;
+  color: #e76f51; /* Cor para o nome do cliente */
+  font-size: 1.1rem;
+}
+
+li .data-hora {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  font-style: italic;
+}
+
+li .numero-pessoas {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+li .objetivo-reserva {
+  color: #777;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+li .reserva-h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+/* Estilo para o contêiner dos botões */
+.botoes-container {
+  display: flex; /* Usa o modelo flexbox */
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  gap: 10px; /* Espaço entre os botões */
+}
+
+/* Estilo para os botões */
+button.editar,
+button.deletar {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Botão editar */
+button.editar {
+  background-color: #4caf50; /* Cor verde */
+}
+
+button.editar:hover {
+  background-color: #45a049; /* Cor verde mais escura ao passar o mouse */
+}
+
+/* Botão deletar */
+button.deletar {
+  background-color: #f44336; /* Cor vermelha */
+}
+
+button.deletar:hover {
+  background-color: #e53935; /* Cor vermelha mais escura ao passar o mouse */
+}
+
+/* Estilos para o campo de objetivo de reserva */
+#objetivoReserva {
+  width: 100%; /* Ajusta a largura da caixa para 100% do contêiner */
+  padding: 8px; /* Adiciona um pouco de espaçamento interno */
+  border: 1px solid #ccc; /* Adiciona uma borda sutil */
+  border-radius: 4px; /* Arredonda os cantos da borda */
+  font-size: 16px; /* Ajusta o tamanho da fonte */
+  margin-top: 8px; /* Adiciona uma margem no topo para dar um espaço entre o campo e o título */
+  box-sizing: border-box; /* Faz com que o padding e borda não aumentem a largura total do campo */
+}
+
+#objetivoReserva:focus {
+  border-color: #5c9dff; /* Muda a cor da borda quando o campo está em foco */
+  outline: none; /* Remove a borda azul padrão do navegador */
+}
+
+/* O modal em si */
+.modal {
+  display: none; /* Inicialmente invisível */
+  position: fixed;
+  z-index: 1; /* Fica acima do conteúdo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Se o conteúdo for maior que a tela, cria barra de rolagem */
+  background-color: rgba(0, 0, 0, 0.4); /* Fundo semitransparente */
+}
+
+/* Conteúdo do modal */
+.modal-conteudo {
+  background-color: #fff;
+  margin: 15% auto; /* Centraliza o modal na tela */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Largura do modal */
+  max-width: 500px; /* Tamanho máximo */
+}
+
+/* Estilo do botão de fechar */
+.fechar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.fechar:hover,
+.fechar:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Reservas de Restaurante</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <img id="r-nav" src="./imgs/R.png" alt="R DA NAV BAR" />
+      <a href="#" onclick="listarReservas()">Minhas Reservas</a>
+      <a id="adminLink" style="display: none" href="admin.html" target="_blank"
+        >Administração</a
+      >
+      <a id="logout-btn" href="#" onclick="logout()">LogOut</a>
+    </nav>
+
+    <!-- Formulário para criar uma nova reserva -->
+    <form id="formReserva">
+      <h2 id="criarReserva">Criar Reserva</h2>
+      <input type="hidden" id="reservaId" />
+
+      <label for="dataReserva">Data da Reserva:</label>
+      <input type="date" id="dataReserva" required />
+
+      <label for="horaReserva">Hora da Reserva:</label>
+      <input
+        type="time"
+        step="3600"
+        min="17:00"
+        max="00:00"
+        id="horaReserva"
+        required
+      />
+
+      <div>
+        <label for="objetivoReserva">Objetivo da Reserva (opcional):</label>
+        <textarea
+          id="objetivoReserva"
+          name="objetivoReserva"
+          rows="3"
+          placeholder="Digite seu objetivo aqui..."
+        ></textarea>
+      </div>
+
+      <label for="mesasSelect">Escolha sua Mesa:</label>
+      <select id="mesasSelect">
+        <option value="">Escolha uma mesa</option>
+      </select>
+
+      <button type="submit">Criar Reserva</button>
+    </form>
+    <form style="display: none" id="form-rsv">
+      <h2>Historico de Reservas</h2>
+      <ul style="display: none" class="reserva-style" id="listaReservas" 0></ul>
+    </form>
+
+    <div id="modalAvaliacao" class="modal" style="display: none">
+      <div class="modal-conteudo">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <h2>Avaliar Reserva</h2>
+        <form id="formAvaliacao" onsubmit="enviarAvaliacao(event)">
+          <input type="hidden" id="idReservaAvaliacao" />
+          <label for="nivelAvaliacao">Nível (1-5):</label>
+          <select id="nivelAvaliacao" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <br />
+          <label for="comentarioAvaliacao">Comentário:</label>
+          <textarea id="comentarioAvaliacao" rows="4" required></textarea>
+          <br />
+          <button type="submit">Enviar Avaliação</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+  </body>
+</html>

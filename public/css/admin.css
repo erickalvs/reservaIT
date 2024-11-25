@@ -1,0 +1,215 @@
+/* Reset básico de margens e padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo do documento */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    to left,
+    #7f095d,
+    #121130
+  ); /* Mantendo o background */
+  color: #333; /* Cor do texto para boa legibilidade */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 14px;
+}
+
+/* Navegação */
+.navbar {
+  background-color: #ffffff; /* Cor de fundo da barra */
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar header h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#menuPrincipal {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#menuPrincipal button {
+  background-color: #7f095d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#menuPrincipal button:hover {
+  background-color: #a40b6f; /* Cor ao passar o mouse */
+}
+
+/* Seções do conteúdo principal */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 30px;
+}
+
+/* Estilo das seções */
+section {
+  background-color: #ffffff; /* Fundo branco */
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Exibição dinâmica das seções */
+section {
+  display: none; /* As seções começam ocultas */
+}
+
+section.show {
+  display: block; /* A seção se torna visível quando a classe 'show' é adicionada via JS */
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Formulários e tabelas dentro das seções */
+form input,
+form select,
+form textarea,
+form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #7f095d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #a40b6f;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center;
+  table-layout: fixed;
+}
+
+table th,
+table td {
+  padding: 15px 15px; /* Preenchimento nas células */
+  text-align: center; /* Alinha o texto à esquerda */
+  border: 1px solid #ddd; /* Borda leve nas células */
+  overflow: hidden; /* Garante que o conteúdo não transborde */
+  text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
+}
+
+table th {
+  background-color: #7f095d;
+  color: white;
+}
+
+table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Tabela de detalhes de usuário */
+#detalhesUsuario {
+  margin-top: 20px;
+}
+
+#detalhesUsuario p {
+  margin-bottom: 10px;
+}
+
+#detalhesUsuario label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Animação para entrada suave das seções */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo base para todos os botões */
+button {
+  background-color: #7f095d; /* Cor de fundo */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white; /* Cor do texto */
+  border: none; /* Remove a borda padrão */
+  padding: 5px 10px; /* Espaçamento interno */
+  text-align: center; /* Alinhamento do texto */
+  text-decoration: none; /* Remove o sublinhado do texto */
+  display: inline-block; /* Permite o layout de inline */
+  font-size: 10px; /* Tamanho da fonte */
+  cursor: pointer; /* Aponta o cursor para indicar que é clicável */
+  border-radius: 5px; /* Borda arredondada */
+  transition: background-color 0.3s ease; /* Animação de transição de cor */
+}
+
+/* Estilo para o botão quando o mouse passa por cima */
+button:hover {
+  background-color: #a40b6f; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o botão de editar */
+button.editar-btn {
+  background-color: #ffa500; /* Cor de fundo laranja */
+}
+
+button.editar-btn:hover {
+  background-color: #e69500; /* Cor de fundo laranja mais escuro ao passar o mouse */
+}
+
+/* Estilo para o botão de excluir */
+button.excluir-btn {
+  background-color: #f44336; /* Cor de fundo vermelha */
+}
+
+button.excluir-btn:hover {
+  background-color: #da190b; /* Cor de fundo vermelha mais escura ao passar o mouse */
+}
+
+.secaoOculta {
+  display: none;
+}

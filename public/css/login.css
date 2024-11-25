@@ -1,0 +1,197 @@
+/* Reset básico de margens e padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo do documento */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to left, #600646, #121130, #121130);
+  color: #333;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ajustado para centralizar verticalmente também */
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  color: #ff0092;
+  font-size: 3rem; /* Tamanho maior para mais destaque */
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* Estilo do formulário */
+.form-container {
+  background-color: #ffffff;
+  padding: 30px; /* Maior padding para espaçar mais os campos */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px; /* Largura aumentada para mais espaço */
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+}
+
+/* Título do formulário */
+h2 {
+  text-align: center;
+  color: #ff0092;
+  font-size: 2rem; /* Maior para destacar */
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Estilos para os campos do formulário */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px; /* Aumentado para dar mais espaço */
+  color: #4a4a4a;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px; /* Aumentado para maior conforto */
+  margin-bottom: 20px; /* Maior espaçamento entre os campos */
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem; /* Tamanho maior para facilitar a leitura */
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+  border-color: #e76f51;
+  outline: none;
+}
+
+/* Botão */
+button {
+  margin-top: 20px;
+  background-color: #ff0092; /* Cor padrão do botão principal */
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: #a5015e;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Cores específicas para o botão "Cadastrar" */
+button[type="submit"] {
+  background-color: #160360; /* Cor verde para cadastrar */
+}
+
+button[type="submit"]:hover {
+  background-color: #070538; /* Hover do botão "Cadastrar" */
+}
+
+/* Cores específicas para o botão "Já tenho uma conta" */
+button[type="button"] {
+  background-color: #f39c12; /* Cor laranja para o botão de login */
+}
+
+button[type="button"]:hover {
+  background-color: #e67e22; /* Hover do botão "Já tenho uma conta" */
+}
+
+/* Alterar o tamanho da tela para dispositivos móveis */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}
+
+.top-img {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.top-img img {
+  max-width: 50%; /* Para redimensionar conforme a largura da tela */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Splash Screen */
+.splash-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #bb29bb;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1.5s ease-in-out; /* Controla o tempo de fade */
+}
+
+.hidden {
+  display: none;
+}
+
+/* Login Container */
+#loginContainer {
+  text-align: center;
+  padding: 20px;
+  display: none;
+}

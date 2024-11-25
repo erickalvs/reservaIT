@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="./css/admin.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <header>
+        <h1>Painel Administrativo</h1>
+      </header>
+      <div id="menuPrincipal">
+        <button onclick="mostrarSecao('reservas')">Gerenciar Reservas</button>
+        <button onclick="mostrarSecao('mesas')">Gerenciar Mesas</button>
+        <button onclick="mostrarSecao('usuarios')">Gerenciar Usuários</button>
+        <button onclick="mostrarSecao('relatorios')">Relatórios</button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </nav>
+    <main>
+      <!-- Menu de opções -->
+
+      <!-- Seções dinâmicas -->
+      <section id="reservas" class="secaoOculta">
+        <h2>Gerenciar Reservas</h2>
+        <button onclick="mostrarTabelaReservas()">Mostrar Reservas</button>
+        <table id="listaReservas" style="display: none">
+          <thead>
+            <tr>
+              <th>ID da Reserva</th>
+              <th>Nome Cliente</th>
+              <th>Data</th>
+              <th>Hora</th>
+              <th>Localização da Mesa</th>
+              <th>Observação</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- As reservas serão preenchidas aqui via JavaScript -->
+          </tbody>
+        </table>
+      </section>
+
+      <section id="formEdicao" class="secaoOculta">
+        <h2>Editar Reserva</h2>
+        <form id="formEditarReserva">
+          <input type="hidden" id="editIdReserva" name="idReserva" />
+          <label for="editData">Data:</label>
+          <input type="date" id="editData" /><br />
+
+          <label for="editHora">Hora:</label>
+          <input type="time" id="editHora" /><br />
+
+          <label for="editMesa">Mesa:</label>
+          <input type="text" id="editMesa" /><br />
+
+          <label for="editObservacao">Observação:</label>
+          <textarea id="editObservacao"></textarea><br />
+
+          <label for="editStatus">Status:</label>
+          <select id="editStatus">
+            <option value="Cancelada">CA</option>
+            <option value="Confirmada">CO</option>
+            <option value="Em Espera">ES</option>
+          </select>
+
+          <button type="button" onclick="atualizarReserva()">
+            Salvar Alterações
+          </button>
+          <button type="button" onclick="cancelarEdicao()">Cancelar</button>
+        </form>
+      </section>
+
+      <section id="mesas" class="secaoOculta">
+        <h2>Gerenciar Mesas</h2>
+        <table id="tabelaMesas">
+          <thead>
+            <tr>
+              <th>ID Mesa</th>
+              <th>Status</th>
+              <th>Descrição</th>
+              <th>Localização</th>
+              <th>Número de Cadeiras</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaMesas">
+            <!-- As mesas serão carregadas aqui via JavaScript -->
+          </tbody>
+        </table>
+
+        <button type="button" onclick="mostrarFormularioAdicionarMesa()">
+          Adicionar Mesa
+        </button>
+        <!-- Formulário de Adicionar Mesa -->
+        <form id="formAdicionarMesa" class="secaoOculta">
+          <input type="text" id="idMesa" placeholder="ID da Mesa" required />
+          <input type="text" id="status" placeholder="Status" required />
+          <input type="text" id="descricao" placeholder="Descrição" required />
+          <input
+            type="text"
+            id="localizacao"
+            placeholder="Localização"
+            required
+          />
+          <input
+            type="number"
+            id="numCadeiras"
+            placeholder="Número de Cadeiras"
+            required
+          />
+          <button type="submit">Salvar Mesa</button>
+        </form>
+
+        <!-- Formulário de Edição de Mesa -->
+        <section id="formEdicaoMesa" class="secaoOculta">
+          <h3>Editar Mesa</h3>
+          <form id="formEditarMesa">
+            <input type="hidden" id="editIdMesa" name="idMesa" />
+            <label for="editStatus">Status:</label>
+            <select id="editStatusAtt">
+              <option value="D">Disponível</option>
+              <option value="O">Ocupada</option>
+              <option value="R">Reservada</option>
+              <!-- Adicione outras opções conforme necessário -->
+            </select>
+
+            <label for="editDescricao">Descrição:</label>
+            <input type="text" id="editDescricao" required /><br />
+
+            <label for="editLocalizacao">Localização:</label>
+            <input type="text" id="editLocalizacao" required /><br />
+
+            <label for="editNumCadeiras">Número de Cadeiras:</label>
+            <input type="number" id="editNumCadeiras" required /><br />
+
+            <button type="button" onclick="salvarEdicao()">
+              Salvar Alterações
+            </button>
+            <button type="button" onclick="cancelarEdicaoMesa()">
+              Cancelar
+            </button>
+          </form>
+        </section>
+      </section>
+
+      <section id="usuarios" class="secaoOculta">
+        <h2>Gerenciar Usuários</h2>
+        <form id="formBuscarUsuario">
+          <label for="cpf">CPF:</label>
+          <input type="text" id="cpf" required />
+          <button type="submit">Buscar Usuário</button>
+        </form>
+
+        <div id="detalhesUsuario" class="oculto">
+          <p>Nome: <span id="nomeUsuario"></span></p>
+          <p>CPF: <span id="cpfUsuario"></span></p>
+          <label>
+            Administrador:
+            <input type="checkbox" id="tipoUsuario" />
+          </label>
+          <button id="btnAtualizar">Atualizar</button>
+        </div>
+      </section>
+
+      <section id="relatorios" class="secaoOculta">
+        <h2>Relatórios</h2>
+        <label for="filtroData">Buscar por Data:</label>
+        <input type="date" id="filtroData" />
+        <button onclick="gerarRelatorioReservas()">Gerar Relatório</button>
+
+        <label for="filtroUsuario">Buscar Reservas por Usuário:</label>
+        <input type="text" id="filtroUsuario" placeholder="CPF do Usuário" />
+        <button onclick="gerarRelatorioReservasUsuario()">
+          Gerar Relatório
+        </button>
+        <button onclick="gerarRelatorioClientes()">
+          Gerar Relatório - Usuário com Mais Reservas
+        </button>
+        <div id="relatorioResult"></div>
+      </section>
+    </main>
+    <script src="./js/admin.js"></script>
+  </body>
+</html>
